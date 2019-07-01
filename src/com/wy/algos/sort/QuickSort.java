@@ -1,7 +1,7 @@
 package com.wy.algos.sort;
 
 /**
- * ��������
+ * ¿ìËÙÅÅÐò
  * 
  * @author Administrator
  *
@@ -28,10 +28,13 @@ public class QuickSort {
 		if(num==null || num.length<=0 || left<0 || right>=num.length){
 			return 0;
 		}
+		// left +(right - left) / 2  == > (right +left) / 2 相等
 		int prio = num[left + (right - left) / 2];
 		while(left<=right){
+			// 如果在中间位置 和 中间加一的位置 值相等，会死循环 比如：{16, 12, 10, 19, 19, 7, 18, 6}
 			while (num[left] < prio)
 				left++;
+			//// 如果在中间位置 和 中间加一的位置 值相等，会死循环 比如：{16, 12, 10, 19, 19, 7, 18, 6}
 			while (num[right] > prio)
 				right--;
 			if (left<=right) {
